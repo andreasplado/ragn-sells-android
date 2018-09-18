@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/map_my_account"
+        android:title="Minu kasutaja"></item>
+    <item android:id="@+id/map_log_out"
+        android:title="Logi välja"></item>
+</menu>

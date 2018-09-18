@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorBackground">#F2F2F2</color>
+    <color name="btnhover">#00FF80</color>
+    <color name="colorPrimary">#008f47</color>
+    <color name="colorPrimaryLight">#f9b700</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+
+    <color name="black_overlay">#66000000</color>
+    <string-array name="movie_serial_bg">
+        <item>#24c6d5</item>
+        <item>#57dd86</item>
+        <item>#ad7dcf</item>
+        <item>#ff484d</item>
+        <item>#fcba59</item>
+        <item>#24c6d5</item>
+    </string-array>
+</resources>

@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">RagnSells</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_register_container">RegisterContainerActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_login">Logi sisse</string>
+
+    <!-- Strings related to login -->
+
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Parool</string>
+    <string name="prompt_name">Nimi</string>
+    <string name="action_name_short">Nimi</string>
+    <string name="action_sign_in">Logi sisse</string>
+    <string name="action_sign_in_short">Logi sisse</string>
+    <string name="action_email">Email</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationales">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <string name="title_activity_loading">LoadingActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">RAGN SELLS</string>
+    <string name="title_activity_manager">ManagerActivity</string>
+    <string name="register">Registreeru</string>
+    <string name="action_register">Registreeru</string>
+
+    <!-- EDITING INFO -->
+    <string name="edit_user_name">Valenimede esitamisel AS Ragn Sellsile võib tekkida väga suuri arusaamatusi.
+        Kõige parem on Teil kasutada Teie õigeit nime!
+    </string>
+    <string name="edit_user_phone_nr">Palun sisestage oma reaalne telefoni number.
+        Nii on Teid võimalik kätte saada!
+    </string>
+    <string name="edit_user_role">Rollil on väga oluline osakaal.
+        Kui te muudate rolli, näete rakendust teistmoodi(kas siis mänedžeri, kliendi või siis vedaja vaadet).
+    </string>
+    <string name="edit_trashcan_info">Kui teil ei õnnestunud prügikonteinerile läheneda, palun kirjeldage seda, miks, ning mänedžer saab probleemi kohta tellijat teavitada</string>
+    <string name="edit_user_delete_user">Kui olete kindel, et Teil seda kontot enam vaja ei lähe, palun sisestage oma parool ja seejärel vajutage kustuta nuppu.</string>
+</resources>

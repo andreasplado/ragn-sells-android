@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="27dp">
+
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:paddingTop="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Raporteerija nimi:"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:text="name"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Asukoht:"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tv_place_name"
+        android:layout_width="wrap_content"
+        android:text="asukoht"
+        android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+        <TextView
+            android:id="@+id/tv_issue_description"
+            android:layout_width="wrap_content"
+            android:text="Probleem:"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_issue"
+            android:layout_width="wrap_content"
+            android:text="Probleemid antud konteineriga puuduvad"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:gravity="end">
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="wrap_content"
+            android:text="user"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</LinearLayout>

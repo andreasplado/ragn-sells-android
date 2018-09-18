@@ -1,0 +1,41 @@
+<LinearLayout android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorBackground">
+
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/et_issue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        android:hint="Probleem"
+        android:textAlignment="center"
+        android:layout_marginLeft="30dp"/>
+
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/btn_add_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fancy:fb_borderColor="#FFFFFF"
+        fancy:fb_borderWidth="1dp"
+        fancy:fb_defaultColor="@color/colorPrimary"
+        fancy:fb_focusColor="@color/btnhover"
+        fancy:fb_iconPosition="left"
+        android:layout_gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+
+        fancy:fb_text="REGISTREERI PRÜGIKONTEINER"
+        fancy:fb_textColor="@color/colorWhite"/>
+</LinearLayout>

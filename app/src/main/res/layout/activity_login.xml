@@ -1,0 +1,154 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/colorBackground"
+    tools:context="www.ragnsells.ee.ragnsells.view.LoginActivity">
+
+    <!-- Login progress -->
+    <com.daimajia.slider.library.SliderLayout
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        custom:pager_animation="Accordion"
+        custom:auto_cycle="true"
+        custom:indicator_visibility="visible"
+        custom:pager_animation_span="1100"
+        android:layout_height="200dp"/>
+
+    <com.daimajia.slider.library.Indicators.PagerIndicator
+        android:id="@+id/custom_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        custom:selected_color="#0095BF"
+        custom:unselected_color="#55333333"
+        custom:selected_drawable="@drawable/ic_warning"
+        custom:shape="oval"
+        custom:selected_padding_left="5dp"
+        custom:selected_padding_right="5dp"
+        custom:unselected_padding_left="5dp"
+        custom:unselected_padding_right="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        custom:selected_width="6dp"
+        custom:selected_height="6dp"
+        custom:unselected_width="6dp"
+        custom:unselected_height="6dp"
+        android:layout_marginBottom="20dp"
+        />
+    <com.daimajia.slider.library.Indicators.PagerIndicator
+        android:id="@+id/custom_indicator2"
+        style="@style/AndroidImageSlider_Corner_Oval_Orange"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        />
+
+    <ScrollView
+        android:id="@+id/sv_login_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/email_login_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorPrimaryLight"
+                app:errorTextAppearance="@style/error_appearance">
+
+                <AutoCompleteTextView
+                    android:id="@+id/et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/prompt_email"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:shadowColor="@color/colorPrimaryLight"
+                    android:textColor="@color/colorBlack"
+                    android:backgroundTint="@color/colorBlack"
+                    android:textColorHint="@color/colorBlack"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorPrimaryLight">
+
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/prompt_password"
+                    android:imeActionLabel="@string/action_sign_in_short"
+                    android:imeOptions="actionUnspecified"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:shadowColor="@color/colorPrimaryLight"
+                    android:textColor="@color/colorBlack"
+                    android:backgroundTint="@color/colorBlack"
+                    android:textColorHint="@color/colorBlack"/>
+
+            </android.support.design.widget.TextInputLayout>
+            <mehdi.sakout.fancybuttons.FancyButton
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                fancy:fb_borderColor="#FFFFFF"
+                fancy:fb_borderWidth="1dp"
+                fancy:fb_defaultColor="@color/colorPrimary"
+                fancy:fb_focusColor="@color/btnhover"
+                fancy:fb_iconPosition="left"
+                fancy:fb_text="LOGI SISSE"
+                fancy:fb_textColor="@color/colorWhite"/>
+
+            <mehdi.sakout.fancybuttons.FancyButton
+                android:id="@+id/btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                fancy:fb_borderColor="#FFFFFF"
+                fancy:fb_borderWidth="1dp"
+                fancy:fb_defaultColor="@color/colorPrimary"
+                fancy:fb_focusColor="@color/btnhover"
+                fancy:fb_iconPosition="left"
+
+                fancy:fb_text="REGISTREERU"
+                fancy:fb_textColor="@color/colorWhite"/>
+            <!--<Button
+                android:id="@+id/btn_register"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/action_register"
+                android:textStyle="bold" /> -->
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

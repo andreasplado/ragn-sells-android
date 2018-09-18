@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="www.ragnsells.ee.ragnsells">
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         currentLocation permissions for the 'MyLocation' functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <!-- <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> -->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".CarrierActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/title_activity_maps" />
+        <activity
+            android:name=".ClientActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/title_activity_register_container"
+            android:noHistory="true" />
+        <activity
+            android:name=".LoginActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/title_activity_login"
+            android:noHistory="true" />
+        <activity
+            android:name=".LoadingActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name"
+            android:noHistory="true"
+            android:theme="@style/FullscreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ManagerActivity"
+            android:label="@string/title_activity_manager" />
+        <activity
+            android:name=".RegisterActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:noHistory="true" />
+        <activity
+            android:name=".MyUserActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:noHistory="true" />
+        <activity android:name=".AddLocationActivity" />
+        <activity
+            android:name=".AddLocationSelectedActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:noHistory="true" />
+
+        <service
+            android:name="services.ProcessingService"
+            android:icon="@drawable/ic_add"
+            android:label="" />
+
+        <activity android:name=".ClientActivityLog" />
+        <activity android:name=".UserInfoActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"></activity>
+    </application>
+
+</manifest>
