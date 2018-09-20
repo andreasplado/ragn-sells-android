@@ -19,6 +19,7 @@ import utils.retrofit.Constants;
 import utils.retrofit.RetrofitBuilder;
 import utils.retrofit.UsersEndpoint;
 import www.ragnsells.ee.ragnsells.LoadingActivity;
+import www.ragnsells.ee.ragnsells.R;
 
 /**
  * Created by Andreas on 06.05.2017.
@@ -45,36 +46,37 @@ public class RegisterManager {
         String mobileNr = etPhoneNr.getText().toString();
         boolean isCorrect = true;
         if(name.equals("")){
-            etName.setError("Nimi ei tohi olla tühi");
+            etName.setError(context.getResources().getString(R.string.name_must_not_be_empty));
             isCorrect = false;
         }else if(name.length() < 5){
-            etName.setError("Nimi ei saa olla nii lühike");
+            etName.setError(context.getResources().getString(R.string.name_cannot_be_so_short));
             isCorrect = false;
         }else if(!name.matches(fullNameExpression)){
-            etName.setError("Nimi peab olema formadis \'Eesnimi Perekonnanimi\'");
+            etName.setError(context.getResources().getString(R.string.name_must_be_in_format));
             isCorrect = false;
         }
         if(email.equals("")) {
-            etEmail.setError("Email ei tohi olla tühi");
+            etEmail.setError(context.getResources().getString(R.string.email_cannot_be_empty));
             isCorrect = false;
         } else if(!pattern.matcher(email).matches()){
-            etEmail.setError("Emaili formaat on ebakorrektne");
+            etEmail.setError(context.getResources().getString(R.string.format_of_email_is_incorrect));
             isCorrect = false;
         }
         if(password.equals("")){
-            etPassword.setError("Parool ei tohi olla tühi");
+            etPassword.setError(context.getResources().getString(R.string.password_cannot_be_empty));
             isCorrect = false;
         }else if(password.length() < 4){
-            etPassword.setError("Teie parool on liiga lühike");
+            etPassword.setError(context.getResources().getString(R.string.password_is_too_short));
             isCorrect = false;
         }
         if(mobileNr.length() < 5){
-            etPhoneNr.setError("Telefoni number ei saa olla nii lühike");
+            etPhoneNr.setError(context.getResources().getString(R.string.phone_number_cannot_be_so_short));
             isCorrect = false;
         }else if(!mobileNr.matches(onlyNumbersExpression)){
-            etPhoneNr.setError("Peate sistama ainult numbri ilma suunakoodita");
+            etPhoneNr.setError(context.getResources().getString(R.string.enter_only_phone_number_without_area_code));
             isCorrect = false;
         }
+
         return isCorrect;
     }
 
@@ -91,7 +93,7 @@ public class RegisterManager {
                 if(!response.body().isError()) {
                     LoginManager.writeLoginDataToSharedPrefs(context, "", "", "");
                     ResponseData authResponse = response.body();
-                    Toast.makeText(context, "Te registreerusite edukalt!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, context.getResources().getString(R.string.you_registred_successfully), Toast.LENGTH_LONG).show();
                     Intent i = new Intent(context, LoadingActivity.class);
                     activity.startActivity(i);
 

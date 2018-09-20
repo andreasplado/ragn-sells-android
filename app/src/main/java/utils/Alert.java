@@ -263,9 +263,6 @@ public class Alert {
         alertDialog.show();
     }
 
-
-
-
     public static void trashcanIssueDetailViewAlert(final int id, final int position, final ListView managerListView, final ManagerManager managerManager, final ListAdapter clientTrashcansAdatper ){
         final View view = View.inflate(managerManager.context, R.layout.alert_trashcan_issue, null);
         final TextView tvPlaceName = (TextView)view.findViewById(R.id.tv_place_name);

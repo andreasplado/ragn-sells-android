@@ -38,32 +38,20 @@ public class UserLocationManager {
 
     private Context context;
     private Activity activity;
-
     private PolylineManager polylineManager;
-
     private GoogleMap googleMap;
-
-
     private static LocationManager locationManager;
     public static Location location;
     private boolean userIsTrackingRoad = false;
 
-    /**
-     * Gets user location and handles.
-     * @param activity
-     * @param context
-     * @param googleMap
-     */
     public UserLocationManager(Activity activity, Context context, GoogleMap googleMap) {
         this.activity = activity;
         this.context = context;
         this.googleMap = googleMap;
-
     }
 
     public void init() {
         initServices();
-
     }
 
     private void initServices() {
@@ -88,8 +76,6 @@ public class UserLocationManager {
         }
     }
 
-
-
     /**
      * Moves the camera to main position.
      * @param location Main position {@link Location}
@@ -100,9 +86,6 @@ public class UserLocationManager {
 
         googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(ESTONIA, 0));
     }
-
-
-
 
     /**
      * Enters the ride mode
@@ -122,7 +105,6 @@ public class UserLocationManager {
             setDarkMapStyle();
             userIsTrackingRoad = true;
             polylineManager.findDirection();
-
         } else{
             fABStartTravelingMode.setVisibility(View.VISIBLE);
             fABExitTravelingMode.setVisibility(View.INVISIBLE);
@@ -146,8 +128,6 @@ public class UserLocationManager {
             setGreenMapStyle();
             moveCameraToMainPosition(location);
             polylineManager.removePolyLine();
-
-
         } else{
             fABExitTravelingMode.setVisibility(View.VISIBLE);
             fabStartTravellingMode.setVisibility(View.INVISIBLE);
@@ -179,10 +159,7 @@ public class UserLocationManager {
                     1);
         }else{
             googleMap.setMyLocationEnabled(true);
-            // enable location buttons
             googleMap.getUiSettings().setMyLocationButtonEnabled(false);
-
-            // fetch last location if any from provider - GPS.
             final LocationManager locationManager = (LocationManager) activity.getSystemService(LOCATION_SERVICE);
             final Location loc = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
@@ -236,7 +213,6 @@ public class UserLocationManager {
                 };
 
                 //update location every 10sec in 500m radius with both provider GPS and Network.
-
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10*1000, 500, locationListener);
                 locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 10000, 500, locationListener);
                 UserData.setUserLocation(loc);
@@ -247,7 +223,6 @@ public class UserLocationManager {
                 // getting location of user
                 UserData.setUserLocation(loc);
                 updateCamera();
-
             }
         }
     }

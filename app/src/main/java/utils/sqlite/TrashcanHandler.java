@@ -39,7 +39,6 @@ public class TrashcanHandler extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    // Creating Tables
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TRASHCANS_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_TRASHCANS + "("
@@ -57,22 +56,16 @@ public class TrashcanHandler extends SQLiteOpenHelper {
         db.execSQL(CREATE_TRASHCANS_TABLE);
     }
 
-    // Upgrading database
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_TRASHCANS);
-
-        // Create tables again
         onCreate(db);
     }
 
-    // code to add the new contact
     public void addTrashcan(Trashcan trashcan) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         onCreate(db);
-
         ContentValues values = new ContentValues();
         values.put(KEY_TRASHCAN_ID, trashcan.getId());
         values.put(KEY_LATITUDE, trashcan.getLatitude());
@@ -84,14 +77,10 @@ public class TrashcanHandler extends SQLiteOpenHelper {
         values.put(KEY_EMAIL, trashcan.getEmail());
         values.put(KEY_NAME, trashcan.getName());
         values.put(KEY_PLACE_NAME, trashcan.getPlace_name());
-
-        // Inserting Row
         db.insert(TABLE_TRASHCANS, null, values);
-        //2nd argument is String containing nullColumnHack
-        db.close(); // Closing database connection
+        db.close();
     }
 
-    // code to get the single contact
     Trashcan getTrashcan(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -119,16 +108,12 @@ public class TrashcanHandler extends SQLiteOpenHelper {
         return trashcan;
     }
 
-    // code to get all contacts in a list view
     public ArrayList<Trashcan> getAllTrashcans() {
         ArrayList<Trashcan> trashcanList = new ArrayList<>();
-        // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_TRASHCANS;
-
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
                 Trashcan trashcan = new Trashcan();
@@ -147,11 +132,9 @@ public class TrashcanHandler extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
 
-        // return contact list
         return trashcanList;
     }
 
-    // code to update the single contact
     public int updateTrashcan(Trashcan trashcan) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -166,12 +149,10 @@ public class TrashcanHandler extends SQLiteOpenHelper {
         values.put(KEY_NAME, trashcan.getName());
         values.put(KEY_PLACE_NAME, trashcan.getPlace_name());
 
-        // updating row
         return db.update(TABLE_TRASHCANS, values, KEY_TRASHCAN_ID + " = ?",
                 new String[] { String.valueOf(trashcan.getId()) });
     }
 
-    // Deleting single trashcan
     public void deleteTrashcan(Trashcan trashcan) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_TRASHCANS, KEY_TRASHCAN_ID + " = ?",
@@ -179,24 +160,23 @@ public class TrashcanHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    // Deleting all trashcans
     public void deleteTrashcans() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("select DISTINCT tbl_name from sqlite_master where tbl_name = '"+TABLE_TRASHCANS+"'", null);
+
         if(cursor.getCount() > 0) {
             db.delete(TABLE_TRASHCANS, null, null);
         }
         db.close();
     }
 
-    // Getting contacts Count
     public int getTrashcansCount() {
         String countQuery = "SELECT  * FROM " + TABLE_TRASHCANS;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
+
         cursor.close();
 
-        // return count
         return cursor.getCount();
     }
 

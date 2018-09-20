@@ -52,12 +52,10 @@ public class UserInfoManager {
                     tvRole.setText(user.getRole());
                     tvUserUpdateDate.setText(user.getUpdated_at());
                     tvUserCreated.setText(user.getCreated_at());
-
                 }
                 else{
                     Alert.registrationFailedServerErrorAlert(activity, context);
                 }
-
             }
 
             @Override

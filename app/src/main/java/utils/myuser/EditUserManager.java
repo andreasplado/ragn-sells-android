@@ -42,12 +42,13 @@ public class EditUserManager {
 
     public void setUserInfo(final TextView tvEmail, final TextView tvName, final TextView tvPhone, final TextView tvRole,
                             final TextView txtUserCreated, final TextView txtUserUpdated){
+        String role = tokenSharedPreferences.getString(UserSharedPrefConstants.SESSION_ROLE, "");
+
         tokenSharedPreferences = context.getSharedPreferences(PrefNames.TOKEN, MODE_PRIVATE);
         tvEmail.setText(tokenSharedPreferences.getString(UserSharedPrefConstants.SESSION_EMAIL, ""));
         tvName.setText(tokenSharedPreferences.getString(UserSharedPrefConstants.SESSION_NAME, ""));
         tvPhone.setText(tokenSharedPreferences.getString(UserSharedPrefConstants.SESSION_PHONE_NR, ""));
 
-        String role = tokenSharedPreferences.getString(UserSharedPrefConstants.SESSION_ROLE, "");
         if(role.equals("client")){
             role = "Klient";
         }else if(role.equals("manager")){
@@ -60,7 +61,7 @@ public class EditUserManager {
         txtUserUpdated.setText(DateConverter.convertDateTimeToReadableFormat(tokenSharedPreferences.getString(UserSharedPrefConstants.SESSION_USER_UDPATED_DATE, "")));
     }
 
-    public void updateName(EditText etName, final TextView tvName){
+    void updateName(EditText etName, final TextView tvName){
         final int id = tokenSharedPreferences.getInt(UserSharedPrefConstants.SESSION_ID, 0);
         final String name = etName.getText().toString();
         new Thread(new Runnable() {
@@ -73,7 +74,7 @@ public class EditUserManager {
                     public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
                         if(response.body() != null) {
 
-                            if(response.body().isError() == true){
+                            if(response.body().isError()){
                                 Toast.makeText(context, response.body().getMsg(), Toast.LENGTH_LONG).show();
                             }else{
                                 Toast.makeText(context, "Muutsite nime edukalt!", Toast.LENGTH_LONG).show();

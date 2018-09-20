@@ -30,6 +30,27 @@
     <string name="phone_number">Phone number</string>
     <string name="nmber_must_be_more_than_5_units">Number must be more than 5 units</string>
     <string name="password">Password</string>
+    <string name="your_old_password_is_wrong">Your old password is wrong</string>
+    <string name="your_password_must_match">Your passwords must match</string>
+    <string name="your_new_password_must_not_be_equal_with_old_password">Your new password must not be equal with old password</string>
+    <string name="your_new_password_must_be_at_least_6_chars_long"> Your password must be at least 6 characters long</string>
+    <string name="carrier">Carrier</string>
+    <string name="manager">Manager</string>
+    <string name="role">Role</string>
+    <string name="delete_user">Delete user</string>
+    <string name="delete">Delete</string>
+    <string name="entered_password_is_wrong">Entered password is wrong</string>
+    <string name="name_must_not_be_empty">Name must not be empty</string>
+    <string name="name_cannot_be_so_short">Name cannot be so short</string>
+    <string name="name_must_be_in_format">Name must be in format: [Eesnimi] [Perekonnanimi]</string>
+    <string name="email_cannot_be_empty">Email cannot be empty</string>
+    <string name="email_is_incorrect">Email is incorrect</string>
+    <string name="password_cannot_be_empty">Password cannot be empty</string>
+    <string name="format_of_email_is_incorrect">Format of an email is incorrect</string>
+    <string name="password_is_too_short">Your password is too short</string>
+    <string name="phone_number_cannot_be_so_short">Phone number cannot be so short</string>
+    <string name="enter_only_phone_number_without_area_code">You can only enter area code withoutarea code</string>
+    <string name="you_registred_successfully">You registred successfully</string>
 
     <!-- Form validation -->
     <string name="entr_fst_and_lstname">Please enter your first and last name</string>
@@ -38,8 +59,8 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">RAGN SELLS</string>
     <string name="title_activity_manager">ManagerActivity</string>
-    <string name="register">Registreeru</string>
-    <string name="action_register">Registreeru</string>
+    <string name="register">Register</string>
+    <string name="action_register">Register</string>
 
     <!-- EDITING INFO -->
     <string name="edit_user_name">Valenimede esitamisel AS Ragn Sellsile võib tekkida väga suuri arusaamatusi.

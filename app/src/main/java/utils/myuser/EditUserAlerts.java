@@ -147,19 +147,19 @@ public class EditUserAlerts {
         String newPasswordRepeat = etNewPasswordRepeat.getText().toString();
         String currentPassword = LoginManager.retrievePassword(context);
         if(!oldPassword.equals(currentPassword)){
-            Toast.makeText(context, "Teie vana parool on vale", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, context.getResources().getString(R.string.your_old_password_is_wrong), Toast.LENGTH_LONG).show();
             isValid = false;
         }
         if(!newPassword.equals(newPasswordRepeat)){
-            Toast.makeText(context, "Teie uus parool peab kattuma", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, context.getResources().getString(R.string.your_password_must_match) , Toast.LENGTH_LONG).show();
             isValid = false;
         }
         if(oldPassword.equals(newPassword)){
-            Toast.makeText(context, "Teie parool ei tohi vana parooliga olla sama", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, context.getResources().getString(R.string.your_new_password_must_not_be_equal_with_old_password), Toast.LENGTH_LONG).show();
             isValid = false;
         }
         if(newPassword.length()<5 && newPasswordRepeat.length() < 5){
-            Toast.makeText(context, "Teie parool peab olema vähemalt 6 tähemärki pikk", Toast.LENGTH_LONG).show();
+            Toast.makeText(context,  context.getResources().getString(R.string.your_new_password_must_be_at_least_6_chars_long), Toast.LENGTH_LONG).show();
             isValid = false;
         }
         return isValid;
@@ -170,25 +170,25 @@ public class EditUserAlerts {
         AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AlertDialogTheme);
         final MaterialSpinner msUserRole = (MaterialSpinner)view.findViewById(R.id.ms_edit_user_role);
         final TextView tvRole = (TextView)activity.findViewById(R.id.tv_role);
-        msUserRole.setItems("Klient", "Vedaja", "Mänedžer");
-        if(tvOldRole.getText().toString().equals("Klient")){
+        msUserRole.setItems(context.getResources().getString(R.string.client), context.getResources().getString(R.string.carrier), context.getResources().getString(R.string.manager));
+        if(tvOldRole.getText().toString().equals(context.getResources().getString(R.string.client))){
             msUserRole.setSelectedIndex(0);
         }
-        else if(tvOldRole.getText().toString().equals("Vedaja")){
+        else if(tvOldRole.getText().toString().equals(context.getResources().getString(R.string.carrier))){
             msUserRole.setSelectedIndex(1);
         }else{
             msUserRole.setSelectedIndex(2);
         }
-        builder.setTitle("Roll");
+        builder.setTitle(context.getResources().getString(R.string.role));
         builder.setView(view);
 
-        builder.setPositiveButton("Muuda", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(context.getResources().getString(R.string.change), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 editUserManager.updateRole(msUserRole, tvRole);
             }
         });
-        builder.setNegativeButton("Tühista", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(context.getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -204,10 +204,10 @@ public class EditUserAlerts {
 
         final EditText etOldPassword = (EditText)view.findViewById(R.id.et_user_password);
 
-        builder.setTitle("Kustatge kasutaja");
+        builder.setTitle(context.getResources().getString(R.string.delete_user));
         builder.setView(view);
 
-        builder.setPositiveButton("Kustuta", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(context.getResources().getString(R.string.delete), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 tokenSharedPreferences = context.getSharedPreferences(PrefNames.TOKEN, MODE_PRIVATE);
@@ -217,7 +217,7 @@ public class EditUserAlerts {
 
             }
         });
-        builder.setNegativeButton("Tühista", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(context.getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -231,7 +231,7 @@ public class EditUserAlerts {
         boolean isValid = true;
         String retrevedPassword = LoginManager.retrievePassword(context);
         if (!etOldPassword.getText().toString().equals(retrevedPassword)){
-            Toast.makeText(context, "Sisestatud parool on vale", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, context.getResources().getString(R.string.entered_password_is_wrong), Toast.LENGTH_LONG).show();
             isValid = false;
         }
         return  isValid;
