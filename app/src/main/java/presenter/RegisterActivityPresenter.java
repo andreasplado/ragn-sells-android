@@ -15,6 +15,7 @@ import mehdi.sakout.fancybuttons.FancyButton;
 import utils.register.RegisterManager;
 import www.ragnsells.ee.ragnsells.LoginActivity;
 import www.ragnsells.ee.ragnsells.R;
+import www.ragnsells.ee.ragnsells.RegisterActivity;
 
 /**
  * Created by Andreas on 06.05.2017.
@@ -24,9 +25,7 @@ public class RegisterActivityPresenter implements Presenter {
 
     private Activity activity;
     private Context context;
-
     private RegisterManager registerManager;
-
     private EditText etName, etEmail, etPassword, etPhoneNr;
     private MaterialSpinner rolematerialSpinner;
     private FancyButton btnRegister;
@@ -59,7 +58,6 @@ public class RegisterActivityPresenter implements Presenter {
 
     @Override
     public void addClicks() {
-
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,13 +65,13 @@ public class RegisterActivityPresenter implements Presenter {
                 activity.startActivity(i);
             }
         });
-
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 registerManager = new RegisterManager(activity, context);
                 boolean areInputsCorrect = registerManager.areInputsCorrect(etName,etEmail,etPassword,etPhoneNr);
-                String role = "client";
+                String role = activity.getResources().getString(R.string.client);
+
                 if(rolematerialSpinner.getSelectedIndex() == 1){
                     role = "carrier";
                 }
@@ -102,7 +100,6 @@ public class RegisterActivityPresenter implements Presenter {
         rolematerialSpinner = (MaterialSpinner)activity.findViewById(R.id.sp_role);
         rolematerialSpinner.setItems("Klient", "Vedaja", "Mänedžer");
         btnRegister = (FancyButton)activity.findViewById(R.id.btn_register);
-
     }
 
     @Override

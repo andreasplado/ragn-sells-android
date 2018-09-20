@@ -32,10 +32,7 @@ public class AddLocationActivityPresenter implements Presenter {
 
     private Activity activity;
     private Context context;
-
     private PlaceAutocompleteFragment autocompleteFragment;
-    private TrashcanManager trashcanManager;
-
 
     public AddLocationActivityPresenter(Activity activity, Context context){
         this.activity = activity;

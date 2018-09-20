@@ -46,6 +46,7 @@ public class LoginManager {
         String email = actvEmail.getText().toString();
         String password = etPassword.getText().toString();
         boolean isCorrect = true;
+
         if(email.equals("")){
             actvEmail.setError("Email ei tohi olla tühi");
             isCorrect = false;
@@ -60,6 +61,7 @@ public class LoginManager {
             etPassword.setError("Teie parool on liiga lühike");
             isCorrect = false;
         }
+
         return isCorrect;
     }
 
@@ -67,6 +69,7 @@ public class LoginManager {
         new Thread(new Runnable() {
             public void run() {
                 UsersEndpoint apiService = RetrofitBuilder.getClient().create(UsersEndpoint.class);
+
                 retrofitBuilder.build();
                 Call<AuthResponse> call = apiService.getToken(activity.getString(R.string.grant_type),
                         activity.getString(R.string.client_id),
@@ -104,11 +107,9 @@ public class LoginManager {
     }
     
     public static void writeLoginDataToSharedPrefs(Context context, String token, String username, String password){
-        // Writing data to SharedPreferences
         SharedPreferences tokesSharedPreferences = context.getSharedPreferences(PrefNames.TOKEN, MODE_PRIVATE);
-
-        // Writing data to SharedPreferences
         SharedPreferences.Editor editor = tokesSharedPreferences.edit();
+
         editor.putString("username", username);
         editor.putString("password", password);
         editor.putString("token", token);
@@ -123,11 +124,13 @@ public class LoginManager {
 
     public static String retrieveUsername(Context context){
         SharedPreferences tokenSharedPreferences = context.getSharedPreferences(PrefNames.TOKEN, MODE_PRIVATE);
+
         return tokenSharedPreferences.getString("username", "");
     }
 
     public static String retrievePassword(Context context){
         SharedPreferences tokenSharedPreferences = context.getSharedPreferences(PrefNames.TOKEN, MODE_PRIVATE);
+
         return tokenSharedPreferences.getString("password", "");
     }
 
@@ -153,7 +156,6 @@ public class LoginManager {
                         }
 
                     }
-
                     @Override
                     public void onFailure(Call<ResponseData> call, Throwable t) {
                         Alert.logoutUnsuccessfulAlert(context);

@@ -25,14 +25,11 @@ public class ClientTrashcansArrayAdapter extends ArrayAdapter<Trashcan>{
     private Activity activity;
     private List<Trashcan> trashcans;
 
-
     public ClientTrashcansArrayAdapter(Activity activity, Context context, List<Trashcan> trashcans) {
         super(context, R.layout.item_manager, trashcans);
         this.activity = activity;
         this.trashcans = trashcans;
     }
-
-
 
     @NonNull
     @Override
@@ -40,7 +37,7 @@ public class ClientTrashcansArrayAdapter extends ArrayAdapter<Trashcan>{
 
         if (convertView == null) {
             LayoutInflater vi = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
+            assert vi != null;
             convertView = vi.inflate(R.layout.item_client_log, parent, false);
             String issue = "";
             String added = "";

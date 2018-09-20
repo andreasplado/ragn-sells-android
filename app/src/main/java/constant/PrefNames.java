@@ -5,6 +5,5 @@ package constant;
  */
 
 public class PrefNames {
-
     public static final String TOKEN ="token";
 }

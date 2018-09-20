@@ -5,7 +5,6 @@ package presenter;
  */
 
 public interface Presenter {
-
     void init();
     void initFileds();
     void requestPermissions();

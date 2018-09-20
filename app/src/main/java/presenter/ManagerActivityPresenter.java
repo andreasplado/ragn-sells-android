@@ -66,6 +66,7 @@ public class ManagerActivityPresenter implements Presenter {
 
     @Override
     public void initFileds() {
+
     }
 
     @Override

@@ -26,21 +26,18 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class EditUserAlerts {
 
-
     private static SharedPreferences tokenSharedPreferences;
 
     public static void editName(Activity activity, final Context context, final EditUserManager editUserManager, final TextView tvOldName){
         final View view = View.inflate(context, R.layout.alert_edit_user_name, null);
-        AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AlertDialogTheme);
-        builder.setTitle("Nimi");
-        builder.setView(view);
         final EditText etName = (EditText)view.findViewById(R.id.et_user_name);
         final TextView tvName = (TextView)activity.findViewById(R.id.tv_name);
+        AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AlertDialogTheme);
+
+        builder.setTitle(context.getResources().getString(R.string.name));
+        builder.setView(view);
         etName.setText(tvOldName.getText().toString());
-
-
-
-        builder.setPositiveButton("Muuda", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(context.getResources().getString(R.string.change), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if(isUserNameEditValid(context, etName)){
@@ -48,15 +45,12 @@ public class EditUserAlerts {
                 }
             }
         });
-        builder.setNegativeButton("Tühista", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(context.getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
             }
         });
-
-
-
         builder.show();
     }
 
@@ -64,14 +58,16 @@ public class EditUserAlerts {
         boolean isValid = true;
         Pattern namePattern = Pattern.compile("^[a-zA-Z\\s]+");
         String userName = etUserName.getText().toString();
+
         if(userName.equals("")){
-            Toast.makeText(context, "Palun sisetsage ees ja perekonnanimi", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, context.getString(R.string.entr_fst_and_lstname), Toast.LENGTH_LONG).show();
             isValid = false;
         }
         if(!namePattern.matcher(userName).matches()){
-            Toast.makeText(context, "Palun sisetsage ees ja perekonnanimi", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, R.string.entr_fst_and_lstname, Toast.LENGTH_LONG).show();
             isValid = false;
         }
+
         return isValid;
     }
 
@@ -79,15 +75,13 @@ public class EditUserAlerts {
     public static void editPhoneNr(Activity activity, final Context context, final EditUserManager editUserManager, TextView tvPhoneOld) {
         final View view = View.inflate(context, R.layout.alert_edit_user_phone_nr, null);
         AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AlertDialogTheme);
-
         final EditText etUserPhone = (EditText)view.findViewById(R.id.et_user_phone);
         final TextView tvUserPhone = (TextView)activity.findViewById(R.id.tv_phone);
+
         etUserPhone.setText(tvPhoneOld.getText().toString());
-
-        builder.setTitle("Telefoni number");
+        builder.setTitle(context.getResources().getString(R.string.phone_number));
         builder.setView(view);
-
-        builder.setPositiveButton("Muuda", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(context.getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if(isPhoneNrEditValid(context, etUserPhone)){
@@ -96,7 +90,7 @@ public class EditUserAlerts {
 
             }
         });
-        builder.setNegativeButton("Tühista", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(context.getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -108,8 +102,9 @@ public class EditUserAlerts {
     private static boolean isPhoneNrEditValid(Context context, EditText etUserPhone){
         boolean isValid = true;
         String phone = etUserPhone.getText().toString();
+
         if(phone.length() < 5){
-            etUserPhone.setError("Number peab olema pikem kui 5 ühikut");
+            etUserPhone.setError(context.getResources().getString(R.string.nmber_must_be_more_than_5_units));
             isValid = false;
         }
         return isValid;
@@ -123,10 +118,10 @@ public class EditUserAlerts {
         final EditText etNewPassword = (EditText)view.findViewById(R.id.et_new_password);
         final EditText etNewPasswordRepeat = (EditText)view.findViewById(R.id.et_new_password_repeat);
 
-        builder.setTitle("Parool");
+        builder.setTitle(context.getResources().getString(R.string.password));
         builder.setView(view);
 
-        builder.setPositiveButton("Muuda", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(context.getResources().getString(R.string.change), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if(isPasswordValid(context, etOldPassword, etNewPassword, etNewPasswordRepeat)){
@@ -135,7 +130,7 @@ public class EditUserAlerts {
 
             }
         });
-        builder.setNegativeButton("Tühista", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(context.getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();

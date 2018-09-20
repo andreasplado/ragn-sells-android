@@ -23,6 +23,17 @@
         completions."
     </string>
 
+    <string name="client">client</string>
+    <string name="name">name</string>
+    <string name="change">change</string>
+    <string name="cancel">cancel</string>
+    <string name="phone_number">Phone number</string>
+    <string name="nmber_must_be_more_than_5_units">Number must be more than 5 units</string>
+    <string name="password">Password</string>
+
+    <!-- Form validation -->
+    <string name="entr_fst_and_lstname">Please enter your first and last name</string>
+
     <string name="title_activity_loading">LoadingActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">RAGN SELLS</string>

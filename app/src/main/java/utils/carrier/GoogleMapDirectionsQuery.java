@@ -62,6 +62,7 @@ public class GoogleMapDirectionsQuery {
                     + trashcans.get(trashcans.size()-1).getLongitude();
 
         generatedUrl += "&waypoints=optimize:true%7C";
+
         //add waypoints that needs to be travelled through
         //google map allow to point out only 8 locations
         //10 with start and location
@@ -75,7 +76,6 @@ public class GoogleMapDirectionsQuery {
             if(i > 8){
                 break;
             }
-
         }
         generatedUrl +="&sensor=false";
 

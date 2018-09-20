@@ -41,20 +41,17 @@ public class ManagerManager {
         this.context = context;
     }
 
-
     public void getAllTrashcansWithIssues(final ListView managerListView, final SwipeRefreshLayout swipeRefreshLayout){
         new Thread(new Runnable() {
             public void run() {
                 TrashcansEndpoint apiService = RetrofitBuilder.getClient().create(TrashcansEndpoint.class);
-                retrofitBuilder.build();
                 Call<ArrayList<Trashcan>> call = apiService.getAllTrashcansWithIssues(LoginManager.retrieveToken(context));
+
+                retrofitBuilder.build();
                 call.enqueue(new Callback<ArrayList<Trashcan>>() {
                     @Override
                     public void onResponse(Call<ArrayList<Trashcan>> call, Response<ArrayList<Trashcan>> response) {
                         if(response.body() != null) {
-
-
-
                             final ArrayList<Trashcan> trashcans = response.body();
                             //Save to SQLITE
                             TrashcanHandler db = new TrashcanHandler(context);

@@ -30,7 +30,6 @@ public class UserInfoActivityPresenter implements Presenter {
 
     private Activity activity;
     private Context context;
-
     private UserInfoManager userInfoManager;
     private TextView tvEmail;
     private TextView tvName;
@@ -40,7 +39,6 @@ public class UserInfoActivityPresenter implements Presenter {
     private TextView tvUserCreated;
     private Button btnBack;
     private FancyButton btnCallUser;
-
 
     public UserInfoActivityPresenter(Activity activity, Context context) {
         this.activity = activity;

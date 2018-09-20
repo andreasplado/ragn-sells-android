@@ -23,7 +23,6 @@ public class Manager {
         this.id = id;
     }
 
-
     public String getCreated_at() {
         return created_at;
     }

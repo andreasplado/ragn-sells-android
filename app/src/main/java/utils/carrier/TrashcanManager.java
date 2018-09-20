@@ -48,7 +48,6 @@ public class TrashcanManager {
             public void onLocationChanged(Location location) {
                 // Called when a new location is found by the network location provider.
                 TrashcanLocation.setLocation(location);
-
             }
 
             public void onStatusChanged(String provider, int status, Bundle extras) {

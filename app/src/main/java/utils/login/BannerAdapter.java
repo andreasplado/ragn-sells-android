@@ -22,7 +22,9 @@ import com.daimajia.slider.library.SliderLayout;
  * Created by daimajia on 14-5-29.
  */
 public class BannerAdapter extends BaseAdapter{
+
     private Context mContext;
+
     public BannerAdapter(Context context) {
         mContext = context;
     }

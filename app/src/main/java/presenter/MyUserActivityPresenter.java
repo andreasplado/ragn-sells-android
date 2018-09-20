@@ -28,11 +28,9 @@ public class MyUserActivityPresenter implements Presenter {
 
     private Activity activity;
     private Context context;
-
     private Button btnBack;
     private FancyButton btnName, btnPhoneNr, btnPassword, btnRole, btnDeleteAccount;
     private TextView tvName, tvPhone, tvRole, tvUserCreated, tvUserUpdated, tvEmail;
-
     private EditUserManager editUserManager;
     private TextView tvNetworkError;
     private MobileDataManager mobileDataManager;

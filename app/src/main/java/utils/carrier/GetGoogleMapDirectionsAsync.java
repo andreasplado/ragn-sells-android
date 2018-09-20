@@ -1,6 +1,7 @@
 package utils.carrier;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
@@ -16,18 +17,16 @@ import java.util.ArrayList;
 
 public class GetGoogleMapDirectionsAsync extends AsyncTask<ArrayList<LatLng>, Object, ArrayList<LatLng>> {
 
-    private Activity activity;
+    protected Context context;
     private Exception exception;
     private PolylineManager polylineManager;
 
-    public GetGoogleMapDirectionsAsync(Activity activity, PolylineManager polylineManager)
+    public GetGoogleMapDirectionsAsync(Context activity, PolylineManager polylineManager)
     {
         super();
-        this.activity = activity;
+        this.context = activity;
         this.polylineManager = polylineManager;
     }
-
-
 
     public void onPreExecute() {
 
@@ -48,17 +47,18 @@ public class GetGoogleMapDirectionsAsync extends AsyncTask<ArrayList<LatLng>, Ob
             GoogleMapDirectionsQuery googleMapDirectionsQuery = new GoogleMapDirectionsQuery();
             Document doc = googleMapDirectionsQuery.getDocument();
             ArrayList<LatLng> directionPoints = googleMapDirectionsQuery.getDirection(doc);
-            return directionPoints;
 
+            return directionPoints;
         }
         catch (Exception e) {
             exception = e;
+
             return null;
         }
     }
 
     private void processException() {
-        Toast.makeText(activity, "Teejuhiseid ei leitud!\nHetkel pole konteinereid, või on registreeritud konteineri asukoht ebaselge", Toast.LENGTH_LONG).show();
+        Toast.makeText(context, "Teejuhiseid ei leitud!\nHetkel pole konteinereid, või on registreeritud konteineri asukoht ebaselge", Toast.LENGTH_LONG).show();
     }
 
 }

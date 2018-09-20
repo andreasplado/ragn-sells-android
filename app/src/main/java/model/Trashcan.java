@@ -54,7 +54,6 @@ public class Trashcan {
         this.issue = issue;
     }
 
-
     public String getEmail() {
         return email;
     }

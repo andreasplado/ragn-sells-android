@@ -93,13 +93,14 @@ public class LoginActivityPersenter implements Presenter{
         btnRegister = (FancyButton) activity.findViewById(R.id.btn_register);
         mDemoSlider = (SliderLayout)activity.findViewById(R.id.slider);
         manageSlider();
-
     }
 
     private void manageSlider(){
         HashMap<String,String> url_maps = new HashMap<String, String>();
+
         url_maps.put("Süvamahutid", "http://ec2-35-162-160-209.us-west-2.compute.amazonaws.com:8080/static_files/1.png");
         url_maps.put("Osta big bag", "http://ec2-35-162-160-209.us-west-2.compute.amazonaws.com:8080/static_files/2.png");
+
         for(String name : url_maps.keySet()){
             TextSliderView textSliderView = new TextSliderView(context);
             // initialize a SliderLayout
@@ -114,7 +115,6 @@ public class LoginActivityPersenter implements Presenter{
                         }
                     });
             mDemoSlider.addSlider(textSliderView);
-
             //add your extra information
             textSliderView.bundle(new Bundle());
             textSliderView.getBundle()

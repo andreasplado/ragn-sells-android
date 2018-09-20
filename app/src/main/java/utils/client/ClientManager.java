@@ -44,7 +44,6 @@ public class ClientManager {
         this.context = context;
     }
 
-
     public void getAllClientTrashcans(final ListView clientLogListView, final SwipeRefreshLayout swipeRefreshLayout) {
         TrashcansEndpoint apiService = RetrofitBuilder.getClient().create(TrashcansEndpoint.class);
         retrofitBuilder.build();
@@ -55,15 +54,12 @@ public class ClientManager {
                 if(response.body() != null) {
 
                     final ArrayList<Trashcan> trashcans = response.body();
-
                     TrashcanHandler db = new TrashcanHandler(context);
+
                     db.deleteTrashcans();
                     for(int i=0; i<trashcans.size(); i++){
                         db.addTrashcan(trashcans.get(i));
                     }
-
-
-
                     Collections.reverse(trashcans);
                     Trashcans.setTrashcans(trashcans);
                     final ArrayList<Trashcan> trashcansList = Trashcans.getTrashcans();

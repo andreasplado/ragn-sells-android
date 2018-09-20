@@ -19,7 +19,6 @@ public class ProcessingService extends Service {
 
     private Timer timer = new Timer();
 
-
     @Override
     public IBinder onBind(Intent intent) {
         return null;
@@ -47,8 +46,6 @@ public class ProcessingService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        //shutdownService();
-
     }
 
 }

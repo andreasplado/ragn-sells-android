@@ -5,8 +5,11 @@ package utils.client;
  */
 
 public class MyBounceInterpolator implements android.view.animation.Interpolator {
-    double mAmplitude = 1;
-    double mFrequency = 10;
+
+    //TODO
+
+    private double mAmplitude = 1;
+    private double mFrequency = 10;
 
     public MyBounceInterpolator(double amplitude, double frequency) {
         mAmplitude = amplitude;

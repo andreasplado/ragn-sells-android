@@ -20,7 +20,6 @@ import android.widget.Toast;
 public class LocationService extends Service implements LocationListener {
 
     private LocationManager locationManager;
-
     private Location location;
 
     @Override
@@ -31,9 +30,7 @@ public class LocationService extends Service implements LocationListener {
             locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
-            }else{
             }
-
         }
         else {
             if (intent.getAction().equals("stopListening")) {

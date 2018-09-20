@@ -40,7 +40,6 @@ public class PolylineManager {
                            GoogleMap googleMap,
                            UserLocationManager userLocationManager,
                            Location currentLocation){
-
         this.activity = activity;
         this.context = context;
         this.googleMap = googleMap;
@@ -75,7 +74,6 @@ public class PolylineManager {
             rectLine.add(directionPoints.get(i));
 
         }
-        //googleMap.addPolyline(rectLine);
         polyline = googleMap.addPolyline(rectLine);
     }
 

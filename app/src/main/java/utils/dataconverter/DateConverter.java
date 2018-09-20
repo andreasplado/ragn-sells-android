@@ -17,12 +17,15 @@ public class DateConverter {
         DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         DateFormat outputFormat = new SimpleDateFormat("dd.MM.yyyy");
         Date parsedDate = null;
+        Locale estoniaLocale = new Locale("et", "ET");
+
         try {
             parsedDate = inputFormat.parse(date);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        Locale estoniaLocale = new Locale("et", "ET");
+
+
         DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT, estoniaLocale);
         String formattedDate = outputFormat.format(parsedDate);
         return formattedDate;

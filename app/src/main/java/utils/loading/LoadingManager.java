@@ -29,6 +29,7 @@ import static android.content.Context.MODE_PRIVATE;
  */
 
 public class LoadingManager {
+
     private Activity activity;
     private Context context;
     private static RetrofitBuilder retrofitBuilder = new RetrofitBuilder(Constants.URL_BASE);
@@ -46,17 +47,16 @@ public class LoadingManager {
      */
     public void getActivityState(){
         UsersEndpoint apiService = RetrofitBuilder.getClient().create(UsersEndpoint.class);
+
         retrofitBuilder.build();
         Call<User> call = apiService.getUser(LoginManager.retrieveUsername(context),LoginManager.retrieveToken(context));
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 if(response.body() != null) {
-
                     UserHandler userHandler = new UserHandler(context);
                     userHandler.removeUsers();
                     userHandler.addUser(response.body());
-
                     UserData.setUser(response.body());
                     UserData.setIsOnline(true);
                     saveUserDataToSharedPrefs(response.body().getId(), response.body().getName(), response.body().getEmail(),
@@ -74,8 +74,6 @@ public class LoadingManager {
                             Intent managerActivityIntent = new Intent(context, ManagerActivity.class);
                             activity.startActivity(managerActivityIntent);
                     }
-
-
                 }else{
                     Alert.loginFailedAlert(activity, context);
                 }
@@ -87,6 +85,7 @@ public class LoadingManager {
                 //Alert.loginFailedAlert(activity, context);
                 UserHandler userHandler = new UserHandler(context);
                 User user = userHandler.getUser(LoginManager.retrieveUsername(context));
+
                 UserData.setUser(user);
                 UserData.setIsOnline(false);
                 switch(UserData.getUser().getRole()){
