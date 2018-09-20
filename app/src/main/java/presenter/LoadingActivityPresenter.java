@@ -18,10 +18,7 @@ public class LoadingActivityPresenter{
 
     private Activity activity;
     private Context context;
-
     private LoadingManager loadingManager;
-    private DrawerLayout drawerLayout;
-    private Button mainMenuBtn;
 
     public LoadingActivityPresenter(Activity activity, Context context){
         this.activity = activity;

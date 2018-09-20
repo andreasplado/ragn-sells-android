@@ -8,7 +8,6 @@
     <string name="title_activity_login">Logi sisse</string>
 
     <!-- Strings related to login -->
-
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Parool</string>
     <string name="prompt_name">Nimi</string>

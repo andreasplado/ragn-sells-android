@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RagnSells.iml" filepath="$PROJECT_DIR$/RagnSells.iml" />
+      <module fileurl="file://C:\Users\Andreas\Desktop\VABA AEG\PROJEKTID\ragn-sells-android\RagnSells.iml" filepath="C:\Users\Andreas\Desktop\VABA AEG\PROJEKTID\ragn-sells-android\RagnSells.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\Andreas\Desktop\VABA AEG\PROJEKTID\ragn-sells-android\app\app.iml" filepath="C:\Users\Andreas\Desktop\VABA AEG\PROJEKTID\ragn-sells-android\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ragn-sells-android.iml" filepath="$PROJECT_DIR$/ragn-sells-android.iml" />
     </modules>
   </component>
 </project>

@@ -27,7 +27,6 @@ public class AddLocationSelectedActivityPresenter implements Presenter {
 
     private Activity activity;
     private Context context;
-
     private FancyButton btnAddContainer;
     private TrashcanManager trashcanManager;
     private TextView txtAddress;
@@ -77,9 +76,7 @@ public class AddLocationSelectedActivityPresenter implements Presenter {
 
                 //Register container.
                 trashcanManager = new TrashcanManager(activity, context);
-
                 trashcanManager.registerContainer(etIssue.getText().toString());
-
                 TrashcanLocation.setLocation(null);
                 Intent i = new Intent(context, AddLocationActivity.class);
                 activity.startActivity(i);

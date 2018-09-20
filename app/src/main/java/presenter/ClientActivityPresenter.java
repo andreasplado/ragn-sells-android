@@ -36,7 +36,6 @@ public class ClientActivityPresenter implements Presenter {
 
     private Activity activity;
     private Context context;
-
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private FancyButton btnRegisterTrashcan;
@@ -44,15 +43,10 @@ public class ClientActivityPresenter implements Presenter {
     private Button mainMenuBtn;
     private TextView tvNetworkError;
     private TextView tvGpsError;
-
     private boolean isNavDrawerOpened;
-
     private TrashcanManager trashcanManager;
     private MobileDataManager mobileDataManager;
     private GPSManager gpsManager;
-
-
-
 
     public ClientActivityPresenter(Activity activity, Context context){
         this.activity = activity;

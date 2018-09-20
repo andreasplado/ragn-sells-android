@@ -31,15 +31,11 @@ public class LoginActivityPersenter implements Presenter{
 
     private Activity activity;
     private Context context;
-
-
     private AutoCompleteTextView etEmail;
     private EditText etPassword;
     private FancyButton btnLogin, btnRegister;
-
     private LoginManager loginManager;
     private SliderLayout mDemoSlider;
-
 
     public LoginActivityPersenter(Activity activity, Context context){
         this.activity = activity;
